@@ -1,5 +1,5 @@
 {
-    "name": "pestphp/pest-plugin-dirty-type-coverage",
+    "name": "thag/pest-plugin-dirty-type-coverage",
     "description": "Pest dirty type coverage for edited files",
     "keywords": [
         "php",
