@@ -1,6 +1,6 @@
 {
-    "name": "pestphp/pest-plugin-template",
-    "description": "My awesome plugin",
+    "name": "pestphp/pest-plugin-dirty-type-coverage",
+    "description": "Pest dirty type coverage for edited files",
     "keywords": [
         "php",
         "framework",
@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Pest\\PluginName\\": "src/"
+            "Pest\\DirtyTypeCoverage\\": "src/"
         },
         "files": [
             "src/Autoload.php"

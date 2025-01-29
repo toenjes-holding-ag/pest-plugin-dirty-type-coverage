@@ -1,6 +1,6 @@
 <?php
 
-use function Pest\PluginName\example;
+use function Pest\DirtyTypeCoverage\example;
 
 it('may be accessed on the `$this` closure', function () {
     $this->example('foo');
