@@ -21,10 +21,7 @@
     "autoload": {
         "psr-4": {
             "Pest\\DirtyTypeCoverage\\": "src/"
-        },
-        "files": [
-            "src/Autoload.php"
-        ]
+        }
     },
     "require-dev": {
         "pestphp/pest-dev-tools": "^3.0.0"
