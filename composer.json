@@ -14,6 +14,8 @@
     "require": {
         "php": "^8.2",
         "pestphp/pest": "^3.0.0",
+        "phpstan/phpstan": "^1.12.10|^2.0.0",
+        "tomasvotruba/type-coverage": "^1.0.0|^2.0.0",
         "pestphp/pest-plugin": "^3.0.0"
     },
     "autoload": {
@@ -49,5 +51,12 @@
             "@test:types",
             "@test:unit"
         ]
+    },
+    "extra": {
+        "pest": {
+            "plugins": [
+                "Pest\\DirtyTypeCoverage\\Plugin"
+            ]
+        }
     }
 }
