@@ -16,6 +16,7 @@ use Pest\TestSuite;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Process\Process;
+
 use function Termwind\render;
 use function Termwind\renderUsing;
 use function Termwind\terminal;
@@ -27,7 +28,6 @@ use function Termwind\terminal;
  */
 class Plugin implements HandlesArguments
 {
-
     /** @var array<string> */
     private array $changedFiles = [];
 
@@ -41,8 +41,7 @@ class Plugin implements HandlesArguments
      */
     public function __construct(
         private readonly OutputInterface $output
-    )
-    {
+    ) {
         $this->coverageLogger = new NullLogger;
     }
 
@@ -93,8 +92,8 @@ class Plugin implements HandlesArguments
                 $errors = $result->errors;
                 $errorsIgnored = $result->errorsIgnored;
 
-                usort($errors, static fn(Error $a, Error $b): int => $a->line <=> $b->line);
-                usort($errorsIgnored, static fn(Error $a, Error $b): int => $a->line <=> $b->line);
+                usort($errors, static fn (Error $a, Error $b): int => $a->line <=> $b->line);
+                usort($errorsIgnored, static fn (Error $a, Error $b): int => $a->line <=> $b->line);
 
                 foreach ($errors as $error) {
                     $uncoveredLines[] = $error->getShortType().$error->line;
@@ -166,7 +165,7 @@ class Plugin implements HandlesArguments
         });
 
         $dirtyFiles = array_map(
-            fn(string $file, string $status): string => in_array($status, ['R', 'RM'], true)
+            fn (string $file, string $status): string => in_array($status, ['R', 'RM'], true)
                 ? explode(' -> ', $file)[1]
                 : $file, array_keys($dirtyFiles), $dirtyFiles,
         );
