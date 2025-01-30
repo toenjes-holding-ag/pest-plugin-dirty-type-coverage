@@ -9,7 +9,7 @@ namespace Tests\Fixtures;
  */
 final class All
 {
-    public const string FOO = 'foo';
+    public const FOO = 'foo';
 
     public const BAZ = 'baz';
 

@@ -83,7 +83,6 @@ class Plugin implements HandlesArguments
             function (Result $result) use (&$totals): void {
                 $path = str_replace(TestSuite::getInstance()->rootPath.'/', '', $result->file);
 
-                // dd($path);
                 $truncateAt = max(1, terminal()->width() - 12);
 
                 $uncoveredLines = [];
@@ -108,6 +107,7 @@ class Plugin implements HandlesArguments
 
                 $uncoveredLines = implode(', ', $uncoveredLines);
                 $uncoveredLinesIgnored = implode(', ', $uncoveredLinesIgnored);
+
                 // if there are uncovered lines, add a space before the ignored lines
                 // but only if there are ignored lines
                 if ($uncoveredLinesIgnored !== '') {
