@@ -16,6 +16,7 @@ use Pest\TestSuite;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Process\Process;
+
 use function Termwind\render;
 use function Termwind\renderUsing;
 use function Termwind\terminal;
@@ -27,7 +28,7 @@ use function Termwind\terminal;
  */
 class Plugin implements HandlesArguments
 {
-
+    /** @var array<string> */
     private array $changedFiles = [];
 
     /**
@@ -126,7 +127,8 @@ class Plugin implements HandlesArguments
                     <span class="flex-1 content-repeat-[.] text-gray mx-1"></span>
                     <span class="text-{$color}">$uncoveredLines{$uncoveredLinesIgnored} {$percentage}%</span>
                 </div>
-                HTML);
+                HTML
+                );
             },
         );
 
@@ -158,8 +160,8 @@ class Plugin implements HandlesArguments
             $dirtyFiles[substr($dirtyFile, 3)] = trim(substr($dirtyFile, 0, 3));
         }
 
-        $dirtyFiles = array_filter($dirtyFiles, function (string $status){
-            return in_array($status, ['M', 'A', 'R', 'RM', 'D', 'MM']);
+        $dirtyFiles = array_filter($dirtyFiles, function (string $status) {
+            return in_array($status, ['M', 'A', 'R', 'RM', 'D', 'MM'], true);
         });
 
         $dirtyFiles = array_map(
